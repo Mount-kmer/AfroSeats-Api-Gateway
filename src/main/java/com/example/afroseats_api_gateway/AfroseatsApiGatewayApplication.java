@@ -21,6 +21,8 @@ public class AfroseatsApiGatewayApplication {
 				.route("account-service", r -> r.path("/users/**")
 						.filters(f ->f.stripPrefix(1))
 						.uri("lb://ACCOUNT-SERVICE"))
+				.route("auth-service", r -> r.path("/authenticate/**")
+						.uri("lb://AUTH-SERVICE"))
 				.route("event-service", r -> r.path("/events/**")
 						.uri("lb://EVENT-SERVICE"))
 				.route("ticker-service", r -> r.path("/tickets/**")
